@@ -79,24 +79,22 @@ For the best and the lowest values of T and D which get the highest accuracy, we
 
 Using the MinMax accuracy measure, the optimal value for T is 5 days and D is 7000 Km since it has the highest score of 92.79%. Provided with the optimal values of T and D we estimate the value of X and then runs a linear model and we get the following values of b_0, b_1. b_0 turns to be 17.41 while the b_1 turns out to be 0.9575. 
 
-4.2.4 ANALYSIS AND RESULTS
-To conduct the analysis of the population risk model, the population data, which was produced by NASA based on data of 2020 global population is used in the form of gird using raster[15] function of R and is visualized like:
+# ANALYSIS AND RESULTS
+To conduct the analysis of the population risk model, the population data, which was produced by NASA based on data of 2020 global population is used in the form of gird using raster function of R.
 
-
-
-The population grid reflects number of persons per square kilometer and as cited on NASA website they were produced as global rasters at 30 arc-second (~1 km at the equator) resolution[3]. This plot helps us visualize the estimates of the population density and its availability as raster data will help us facilitate data integration with the Predicted Energy Calculated by the model.
+The population grid reflects number of persons per square kilometer and as cited on NASA website they were produced as global rasters at 30 arc-second (~1 km at the equator) resolution. This plot helps us visualize the estimates of the population density and its availability as raster data will help us facilitate data integration with the Predicted Energy Calculated by the model.
 The linear model provides us the Predicted energy release based on the information of the location (longitude and latitude) and the time of when the earthquake happens. With the help of these information, we can use the linear model to predict the energy released by the earthquake. To demonstrate, we have considered fictious earthquakes happening on the time same as records provided in the USGS dataset and using the linear model we predict the Energy Released by them and again using the rasterize function in R we plot the grid of the predicted energy released as:
  
 
 
-However, the aim of the model is to identify the risk locations which have high predicted energy released and high population count so firstly, it is necessary to view the population data and predicted energy released on the same grid which is achieved my merging the raster form of population and predicted energy data in R using the merge function[15]. The combined plot of both the Population Data and the Predicted Energy Released looks like:
+However, the aim of the model is to identify the risk locations which have high predicted energy released and high population count so firstly, it is necessary to view the population data and predicted energy released on the same grid which is achieved my merging the raster form of population and predicted energy data in R using the merge function. The combined plot of both the Population Data and the Predicted Energy Released looks like:
  
 
 
-Most of the energy is released in the oceans and there is no population around it however, there are some geographical regions in the grid which register energy release in the populated areas. This provides us the possibility of assessing some geographical locations with high population count and high predicted energy released. To start with this, we find locations which have released predicted energy greater than 500 and used the app to help visualize the same. The locations with high predicted energy release are highlighted in the map on the app and here, is a screenshot of the same:
+Most of the energy is released in the oceans and there is no population around it however, there are some geographical regions in the grid which register energy release in the populated areas. This provides us the possibility of assessing some geographical locations with high population count and high predicted energy released. To start with this, we find locations which have released predicted energy greater than 500 and used the app to help visualize the same. The locations with high predicted energy release are highlighted in the map on the app.
  
 
-When we assess the data, all the regions with high predicted energy released are not highly populated but since the aim of the model is to identify the locations with high energy release and high population count so, from the extracted data above we identify the locations which have high energy release and high population count. To be specific, we have identified the 15 locations which have high predicted energy release greater than 1,500 while the population count was greater than 20,000. The assessed risk zones are again visualized through the app and here is the screenshot of the same:
+When we assess the data, all the regions with high predicted energy released are not highly populated but since the aim of the model is to identify the locations with high energy release and high population count so, from the extracted data above we identify the locations which have high energy release and high population count. To be specific, we have identified the 15 locations which have high predicted energy release greater than 1,500 while the population count was greater than 20,000. The assessed risk zones are again visualized through the app.
  
 
 Mostly, the earthquakes with high predicted energy release have happened over the same geographic region with high population count since we can see that in the map the circles overlap with each other indicating that these locations are at the highest risk since the frequency of earthquake occurrence with high energy released in densely populated areas is the highest for these locations.
